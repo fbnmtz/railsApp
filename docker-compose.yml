@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  # db:
+  #   image: postgres
+  #   volumes:
+  #     - ./tmp/db:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_PASSWORD: password
+  app:
+    # image: ruby:2.7.0
+    build:
+      context: .
+      dockerfile: config/docker-compose/DockerfileRuby
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
+    # depends_on:
+    #   - db
